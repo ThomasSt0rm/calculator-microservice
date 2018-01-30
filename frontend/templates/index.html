@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+  <form method=post>
+    <dl>
+      <dt>First number:<dd><input type=text name=first>
+      <dt>Second number:<dd><input type=text name=second>
+      <dd><input type=submit name=action value=Sum>
+      <dd><input type=submit name=action value=Deduct>
+      <dd><input type=submit name=action value=Multiply>
+      <dd><input type=submit name=action value=Divide>
+    </dl>
+  </form>
+{% endblock %}

@@ -1,0 +1,32 @@
+version: '3'
+services:
+  minus:
+    build: minus
+    ports:
+      - "5052:5052"
+  plus:
+    build: plus
+    ports:
+      - "5051:5051"
+  multi:
+    build: multiplier
+    ports:
+      - "5053:5053"
+  div:
+    build: division
+    ports:
+      - "5054:5054"
+  frontend:
+    build: frontend
+    ports:
+      - "5055:5055"
+    depends_on:
+      - plus
+      - minus
+      - multi
+      - div
+    links:
+      - minus
+      - plus
+      - multi
+      - div
